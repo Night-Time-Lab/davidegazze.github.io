@@ -87,7 +87,7 @@ the original one.
 
 The formula is:
 
-![](imgs/RangeCoverage.png)
+![](RangeCoverage.png)
 
 This metric calculates how closely the minimum and maximum values of a new column (s) match the minimum and maximum values of an original column (r). A score of 0 is given if the new dataset has poor range coverage, while a score of 1 is assigned if the new dataset covers the entire range, even exceeding the boundaries of the original data.
 
@@ -163,12 +163,12 @@ computes the similarity of an original column to a new column in terms of the co
 
 The Total Variation Distance (TVD) between the original and new columns is calculated using this test. To accomplish this, it first computes and expresses the frequency of each category value as a probability. The TVD statistic compares probability differences, as shown in the formula below [1]:
 
-![](imgs/tv_complement.png)
+![](tv_complement.png)
 
 In this case, describes all the possible categories in a column. Meanwhile, R and S are the original and new frequency columns. The TVComplement returns 1-TVD, so a higher score indicates better quality.
 The score is:
 
-![](imgs/score_tv_complement.png)
+![](score_tv_complement.png)
 
 To use this metric:
 
@@ -191,7 +191,7 @@ Missing values are ignored by this metric.
 A score goes from 0.0 (the minimum) to 1.0 (the best score).
 The given statistical function, f, is computed for the original data and new columns, r, and s, in this test. The score is then normalized by scaling and taking its complement. This yields a score in the [0, 1] range*, with a high value indicating high similarity.
 
-![](imgs/StatisticSimilarity.png)
+![](StatisticSimilarity.png)
 
 To use this metric:
 
@@ -219,7 +219,7 @@ The metrics work with all data types and can handle missing values.
 The best score is 1.0, and the worst is 0.0.
 This test computes the proportion of missing values, p, in the original and new data, R and S. It normalizes them and returns a similarity score in the range [0, 1], with 1 representing the highest similarity. 
 
-![](imgs/MissingValueSimilarity.png)
+![](MissingValueSimilarity.png)
 
 It should be noted that the term on the right corresponds to the Total Variation Distance [1] of the missing/non-missing values between the original and new data.
 
@@ -250,7 +250,7 @@ The score has the following values:
 * (worst) 0.0: The contingency table is as unique as they come.
 The test computes a normalized contingency table for the original and new data. The formula below summarizes the process. 
 
-![](imgs/ContingencySimilarity.png)
+![](ContingencySimilarity.png)
 
 The image above describes all possible categories in column A and all possible categories in column B in the formula. Meanwhile, R and S denote the original and new frequencies.
 
@@ -279,7 +279,7 @@ The score is based on the following values:
 This test computes a correlation coefficient on original and new data, R and S, for a pair of columns.
 This results in two distinct correlation values. The test normalizes and returns a similarity score.
 
-![](imgs/CorrelationSimilarity.png)
+![](CorrelationSimilarity.png)
 
 It should be noted that the correlation coefficient can be calculated in different ways. Both the Pearson correlation coefficient and Spearman's rank correlation coefficient are supported. Both have a range of -1 to +1.
 In Data Science, the Pearson and Spearman rank correlation coefficients are frequently used. The Pearson coefficient determines whether two columns are linearly related, whereas the Spearman coefficient determines whether they are monotonically related.
@@ -313,12 +313,12 @@ The score has the following value ranges:
 
 This metric looks for rows that match the original and the new datasets. The exact matching criteria are determined by the type of data.
 
-![](imgs/NewRowSynthesis.png)
+![](NewRowSynthesis.png)
 
 The match is considered when the synthetic value is within a %. The % is a parameter that is, by default, set to 0.01 (1%). For a match to be considered, both original and new values must be missing.
 The complement is the score, so 1 is a good score (every row is unique), and 0 is the worst (every row has a match).
 
-![](imgs/NewRowSynthesis.png)
+![](NewRowSynthesis.png)
 
 An example of how to use this metric is:
 
